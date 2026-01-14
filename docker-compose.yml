@@ -1,0 +1,10 @@
+services:
+  vpn-sync:
+    build: .
+    container_name: vpn-sync
+    ports:
+      - "8000:8000"
+    environment:
+      PING_URL: "https://example.com"
+      PING_MINUTES: "1"
+    restart: unless-stopped

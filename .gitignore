@@ -1,22 +1,14 @@
-# Python
 __pycache__/
 *.py[cod]
-# Virtual environments
 .venv/
 venv/
-# Poetry
 .poetry/
-# Env files
 .env
 .env.*
-# Tests / linters
 .pytest_cache/
 .ruff_cache/
 .coverage
-# IDE
 .idea/
 .vscode/
-# OS
 .DS_Store
-# Docker
 docker-data/

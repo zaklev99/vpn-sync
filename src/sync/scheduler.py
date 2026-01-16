@@ -1,18 +1,10 @@
-import os
 from apscheduler.executors.asyncio import AsyncIOExecutor
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from vpn_sync.pinger import ping
-
-PING_URL = os.getenv("PING_URL", "https://example.com")
-PING_MINUTES = int(os.getenv("PING_MINUTES", "5"))
+from config import settings
+from sync.service import ping_once
 
 scheduler: AsyncIOScheduler | None = None
-
-
-async def job() -> None:
-    result = await ping(PING_URL)
-    print("PING:", result, flush=True)
 
 
 def start_scheduler() -> None:
@@ -21,7 +13,13 @@ def start_scheduler() -> None:
         return
 
     scheduler = AsyncIOScheduler(executors={"default": AsyncIOExecutor()})
-    scheduler.add_job(job, "interval", minutes=PING_MINUTES, max_instances=1, coalesce=True)
+    scheduler.add_job(
+        ping_once,
+        "interval",
+        minutes=settings.ping_minutes,
+        max_instances=1,
+        coalesce=True,
+    )
     scheduler.start()
 
 

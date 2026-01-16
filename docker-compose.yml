@@ -5,6 +5,6 @@ services:
     ports:
       - "8000:8000"
     environment:
-      PING_URL: "https://example00000.com"
+      PING_URL: "https://example.com"
       PING_MINUTES: "1"
     restart: unless-stopped

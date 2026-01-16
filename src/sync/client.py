@@ -1,10 +1,8 @@
 import time
 import httpx
 
-DEFAULT_URL = "https://example.com"
 
-
-async def ping(url: str = DEFAULT_URL) -> dict:
+async def get_url(url: str) -> dict:
     started = time.time()
     try:
         async with httpx.AsyncClient(timeout=10, follow_redirects=True) as client:

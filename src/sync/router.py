@@ -13,8 +13,3 @@ async def run_once():
 @router.get("/last-ping")
 def last_ping():
     return get_last_ping()
-
-
-@router.get("tests")
-def tests():
-    return get_last_ping()

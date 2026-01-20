@@ -7,7 +7,7 @@ authors = [
 ]
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["fastapi (>=0.128.0,<0.129.0)", "uvicorn (>=0.40.0,<0.41.0)", "httpx (>=0.28.1,<0.29.0)", "apscheduler (>=3.11.2,<4.0.0)", "pydantic-settings (>=2.12.0,<3.0.0)"]
+dependencies = ["fastapi (>=0.128.0,<0.129.0)", "uvicorn (>=0.40.0,<0.41.0)", "httpx (>=0.28.1,<0.29.0)", "apscheduler (>=3.11.2,<4.0.0)", "pydantic-settings (>=2.12.0,<3.0.0)", "grpcio (>=1.76.0,<2.0.0)", "protobuf (>=6.33.4,<7.0.0)", "grpcio-tools (>=1.76.0,<2.0.0)"]
 
 [tool.poetry]
 packages = [{ include = "vpn_sync", from = "src" }]
@@ -19,5 +19,6 @@ build-backend = "poetry.core.masonry.api"
 [dependency-groups]
 dev = [
     "ruff (>=0.14.11,<0.15.0)",
-    "pytest (>=9.0.2,<10.0.0)"
+    "pytest (>=9.0.2,<10.0.0)",
+    "grpcio-tools (>=1.76.0,<2.0.0)"
 ]

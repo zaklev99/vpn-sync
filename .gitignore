@@ -5,6 +5,7 @@ venv/
 .poetry/
 .env
 .env.*
+!.env.example
 .pytest_cache/
 .ruff_cache/
 .coverage

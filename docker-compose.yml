@@ -1,5 +1,7 @@
 services:
   vpn-sync:
+    env_file:
+      - .env
     build: .
     container_name: vpn-sync
     ports:

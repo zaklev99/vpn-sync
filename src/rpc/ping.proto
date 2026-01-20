@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package ping;
+
+// Сервис = набор удалённых методов
+service PingService {
+  rpc PingOnce (PingOnceRequest) returns (PingResult);
+  rpc GetLastPing (GetLastPingRequest) returns (PingResult);
+}
+
+// Пустой запрос (ничего не нужно передавать)
+message PingOnceRequest {}
+
+message GetLastPingRequest {}
+
+// Ответ: максимально похож на dict из client.py
+message PingResult {
+  bool ok = 1;
+  string url = 2;
+  int32 status_code = 3;     // если нет — будет 0
+  int32 elapsed_ms = 4;      // если нет — будет 0
+  string error = 5;          // если нет — пустая строка
+  string note = 6;           // например "no data yet"
+}
